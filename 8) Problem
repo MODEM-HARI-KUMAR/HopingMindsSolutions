@@ -1,0 +1,30 @@
+8) Automorphic no. 
+25 = 25*25 = 625
+6 = 6*6 = 36.
+
+Answer
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int s = n * n;
+        boolean b = true;
+        while (n > 0) {
+            if (n % 10 != s % 10) {
+                b = false;
+            }
+            n = n/10;
+            s = s/10;
+            if(b==false)
+                break;
+            else 
+                continue;
+        }
+        if(b==true) 
+            System.out.println("automorphic");
+        else 
+            System.out.println("not an automorphic");
+    }
+}
