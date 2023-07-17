@@ -1,0 +1,45 @@
+2)Q2. A school library charges a fine for books returned after the due date acc. To the following condition : -
+Days                        	Fine
+1-5 days                     .40 p
+6-10 days                   .65p exceeding 6 days
+10-15 days                  .80p exceeding 10 days
+15-25 days                   1.20p exceeding 15 days
+# if the book gets misplaced fine of Rs. 500 on each book, with the due date fine on the day of reporting
+# If the book has been hampered Rs.200 on each book, with the due date fine on the day of reporting
+# Calculate total fine acc. To the books lend to the student
+#Due date to return the book is 25 days after the issue date
+
+
+Answer
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the number of days : ");
+        int n = in.nextInt();
+        System.out.print("Enter the number of books : ");
+        int numberOfBook = in.nextInt();
+        System.out.print("Enter the no of misplaced book : ");
+        int numberOfMisplacedBook = in.nextInt();
+        System.out.print("Enter the no of misHampered book : ");
+        int numberOfHampedBook = in.nextInt();
+        if( numberOfBook < numberOfHampedBook+ numberOfMisplacedBook){
+            System.out.println( " your input is not valid ");
+        }
+        else {
+            double fine = 0.0;
+            if (n <= 5) {
+                fine = numberOfBook * (n * .40) + ((numberOfMisplacedBook*500 + numberOfHampedBook*200));
+            }
+            else if (n > 5 && n <= 10){
+                fine = numberOfBook*(5 * .40 + ((10-n)*.65)) + ((numberOfMisplacedBook*500 + numberOfHampedBook*200));
+            }
+            else if (n > 10 && n <= 15){
+                fine = numberOfBook*((5 * .40 + 5*.65) + ((15-n)*.80)) + ((numberOfMisplacedBook*500 + numberOfHampedBook*200));
+            }
+            else if (n > 15 && n <= 25){
+                fine =  numberOfBook*((5 * .40 + 5*.65 + 5*.80) + ((25-n)*1.20)) + ((numberOfMisplacedBook*500 + numberOfHampedBook*200));
+            }
+            System.out.println("Fine to be paid = ₹" + fine);
+        }
+    }
+}
