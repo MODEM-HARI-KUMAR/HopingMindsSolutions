@@ -1,0 +1,25 @@
+7)Neon no.
+ Eg. 9
+9*9 = 81
+8  +   1 = 9
+
+Answer
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int nn = n*n;
+        int sum = 0;
+        while(nn>0) {
+            int r = nn % 10;
+            sum = sum + r;
+            nn = nn / 10;
+        }
+        if(n==sum)
+            System.out.println("neon");
+        else 
+            System.out.println("not neon");
+    }
+}
