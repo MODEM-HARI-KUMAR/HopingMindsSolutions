@@ -1,0 +1,72 @@
+10)   10. Write a program to calculate the electricity bill of a customer while taking input from the user and print name of the customer, contact no., address, meter no.,new reading,current reading , old reading, meter rent,meter no.,  calculate bill depending upon the following conditions :  - 
+
+Current reading(units)                           Charges(Rs.)                          Tax 
+>1 & <100                                             .80 paise per unit                     2%
+>100 & <300                                         Rs. 1 per unit                           5%
+>300 & < 500                                        Rs. 1.20 per unit                      7%
+>500 & <800                                         Rs. 2 per unit                           11%
+>800 & <1200                                       Rs. 2.50 per unit                      15%
+>1200                                                    Rs. 3.40 per unit                      18%
+
+Meter rent is fixed at rs. 50
+
+10)  import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter your name");
+        String name = sc.nextLine();
+        System.out.println("Please enter your contact number");
+        long contactNumber = sc.nextLong();
+        System.out.println("Please enter your address");
+        sc.nextLine();
+        String address = sc.nextLine();
+        System.out.println("Please enter your meter number");
+        long meterNumber = sc.nextLong();
+        System.out.println("Please enter your old reading");
+        double oldReading = sc.nextInt();
+        System.out.println("Please enter your current reading");
+        double currentReading = sc.nextInt();
+        System.out.println("Name : "+name);
+        System.out.println("Contact Number : "+contactNumber);
+        System.out.println("Address : "+address);
+        System.out.println("Meter Number : "+meterNumber);
+        System.out.println("Old Reading : "+oldReading);
+        System.out.println("Current Reading : "+currentReading);
+        double tax = 0;
+        double amount = 0;
+        if(currentReading>=1 && currentReading<100) {
+            tax = currentReading * 0.80 * 0.02;
+            amount = currentReading * 0.80;
+            amount = amount +  tax;
+        }
+        else if(currentReading>=100  && currentReading<300) {
+            tax = currentReading * 1 * 0.05;
+            amount = currentReading * 1;
+            amount = amount +  tax;
+        }
+        else if(currentReading>=300  && currentReading<500) {
+            tax = currentReading * 1.20 * 0.07;
+            amount = currentReading * 1.20;
+            amount = amount +  tax;
+        }
+        else if(currentReading>=500  && currentReading<800) {
+            tax = currentReading * 2 * 0.11;
+            amount = currentReading * 2;
+            amount = amount +  tax;
+        }
+        else if(currentReading>=800  && currentReading<1200) {
+            tax = currentReading * 2.50 * 0.15;
+            amount = currentReading * 2.50;
+            amount = amount +  tax;
+        }
+        else {
+            tax = currentReading * 3.40 * 0.18;
+            amount = currentReading * 3.40;
+            amount = amount +  tax;
+        }
+        System.out.println("tax : "+tax);
+        System.out.println("Meter rent : 50");
+        System.out.println("amount : "+(50+amount));
+    }
+}
