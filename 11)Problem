@@ -1,0 +1,19 @@
+11) import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(),m = sc.nextInt(),rs = sc.nextInt();
+        if(a>m) {
+            m = a - m;
+            rs = rs - m;
+        }
+        else if(a<m) {
+            a = m - a;
+            rs = rs + a;
+        }
+        else {
+            rs = rs;
+        }
+        System.out.println(rs);
+    }
+}
