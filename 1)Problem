@@ -1,0 +1,36 @@
+Q1. Mr. Kapil singh is a software eng. And he pays annual income tax as per the conditions.
+Income                             	tax
+4lc-7lc                               	no tax
+7lc – 10 lc                             5% on first exceeding 7 lcs
+10lc-14lc                           	10% on exceeding 10 lcs
+14lc – 18lc                         	15% on exceeding 14 lcs
+>18lcs                               	25% on exceeding 18 lcs
+
+Answer
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter your annual salary");
+        int a = in.nextInt();
+        double tax=0;
+        if(a>=400000 && a <700000) {
+            System.out.println("Hey! you have no tax!");
+        }
+        else {
+            if(a>=700000 && a<1000000) {
+                tax= a- (a-700000*5/100);
+            }
+            else if(a>=1000000 && a<1400000) {
+                tax= a- ((400000*5/100) + (a-1000000*10/100));
+            }
+            else if(a>=1400000 && a<1800000) {
+                tax= a- ((400000*5/100) + (400000*10/100) + (a-1400000*15/100));
+            }
+            else {
+                tax= a- ((400000*5/100) + (400000*10/100) + (1800000*15/100) + (a-1800000*15/100));
+            }
+            System.out.println("Your tax is : "+tax);
+        }
+    }
+}
