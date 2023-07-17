@@ -1,0 +1,18 @@
+13) import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(5/5);
+        int number = scanner.nextInt();
+        int trailingZeros = countTrailingZeros(number);
+        System.out.println("Number of trailing zeros: " + trailingZeros);
+    }
+    public static int countTrailingZeros(int number) {
+        int count = 0;
+        while (number >= 5) {
+            number /= 5;
+            count += number;
+        }
+        return count;
+    }
+}
