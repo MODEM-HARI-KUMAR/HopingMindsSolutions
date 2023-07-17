@@ -1,0 +1,38 @@
+12) public class Main {
+    public static void main(String[] args) {
+        int start = 109;
+        int end = 112; 
+        int count = countNumbersWithDigits(start, end);
+        System.out.println(" Count: " + count);
+    }
+    public static int countNumbersWithDigits(int start, int end) {
+        int count = 0;
+        for (int i = start; i <= end; i++) {
+            if (containsOnlyDigits(i, 1, 4, 9)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static boolean containsOnlyDigits(int number, int... digits) {
+        System.out.println(" n "+number);
+        String numberString = String.valueOf(number);
+        System.out.println(" s "+numberString);
+        for (char c : numberString.toCharArray()) {
+            System.out.print(" "+c+" ");
+            if (!containsDigit(c - '0', digits)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean containsDigit(int digit, int... digits) {
+        for (int d : digits) {
+            System.out.print(" d "+d);
+            if (digit == d) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
