@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class Main {
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean isPerfectSquare(int num) {
+        int sqrt = (int) Math.sqrt(num);
+        return sqrt * sqrt == num;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++)
+            a[i] = sc.nextInt();
+        List<Integer> evenNumbers = new ArrayList<>();
+        List<Integer> oddNumbers = new ArrayList<>();
+        List<Integer> primeNumbers = new ArrayList<>();
+        List<Integer> compositeNumbers = new ArrayList<>();
+        List<Integer> armstrongNumbers = new ArrayList<>();
+        for (int num : arr) {
+            if (num % 2 == 0) {
+                evenNumbers.add(num);
+            }
+            else {
+                oddNumbers.add(num);
+            }
+            if (isPrime(num)) {
+                primeNumbers.add(num);
+            }
+            else {
+                compositeNumbers.add(num);
+            }
+            if (isPerfectSquare(num)) {
+                armstrongNumbers.add(num);
+            }
+        }
+        System.out.println("Even numbers: " + evenNumbers);
+        System.out.println("Odd numbers: " + oddNumbers);
+        System.out.println("Prime numbers: " + primeNumbers);
+        System.out.println("Composite numbers: " + compositeNumbers);
+        System.out.println("Armstrong numbers: " + armstrongNumbers);
+    }
+}
