@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class Main {
+    public static boolean isPerfectSquare(int num) {
+        int sqrt = (int) Math.sqrt(num);
+        return sqrt * sqrt == num;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] a = new int[n];
+        for(int i=0;i<n;i++) 
+            a[i] = sc.nextInt();
+        List<Integer> perfectSquares = new ArrayList<>();
+        for (int num : a) {
+            if (isPerfectSquare(num)) {
+                perfectSquares.add(num);
+            }
+        }
+        if (perfectSquares.isEmpty()) {
+            System.out.println("None");
+        }
+        else {
+            for (int square : perfectSquares) {
+                System.out.print(square + " ");
+            }
+        }
+    }
+}
