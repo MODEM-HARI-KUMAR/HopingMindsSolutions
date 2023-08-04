@@ -1,0 +1,24 @@
+class Main {
+    public static int bc(int n, int m) {
+        int res = 1;
+        if (m > n - m)
+            m = n - m;
+        for (int i = 0; i < m; ++i) {
+            res = res * (n - i);
+            res = res/ (i + 1);
+        }
+        return res;
+    }
+    public static int cw(int m, int n) {
+        if (m < n) {
+            return 0;
+        }
+        int ways = bc(n + m - 1, n - 1);
+        return ways;
+    }
+    public static void main(String[] args) {
+        int m = 2, n = 2;
+        int result = cw(m, n);
+        System.out.println(result);
+    }
+}
