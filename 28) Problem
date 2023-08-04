@@ -1,0 +1,44 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+public class MostRepeatedElementInArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int mostRepeatedElement = findMostRepeatedElement(arr);
+        int count = countOccurrences(arr, mostRepeatedElement);
+        System.out.println("The most repeated element is: " + mostRepeatedElement);
+        System.out.println("It appears " + count + " times.");
+    }
+    public static int findMostRepeatedElement(int[] arr) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        // Counting the frequency of each element in the array
+        for (int num : arr) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        int mostRepeatedElement = 0;
+        int maxFrequency = 0;
+        // Finding the element with the highest frequency
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            int frequency = entry.getValue();
+            if (frequency > maxFrequency) {
+                mostRepeatedElement = entry.getKey();
+                maxFrequency = frequency;
+            }
+        }
+        return mostRepeatedElement;
+    }
+    public static int countOccurrences(int[] arr, int target) {
+        int count = 0;
+        for (int num : arr) {
+            if (num == target) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
